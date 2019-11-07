@@ -17,8 +17,7 @@ Later, for the clients table, I may extract address(es), phone number(s), and em
 ## What am I doing today? (small chunks)
 
 **2019-11-07**
-- Display a list of clients using a striped table
-- Add pagination
+- Include fontawesome for access to view, edit, delete, and "more" icons
 - Make a create form; then store the data
 - Add validation
 - Display flash message for successful client creation
@@ -114,10 +113,26 @@ B. A client can have many jobs.
 
 ➜  invoice git:(master) ✗ php artisan migrate
 
-** Create 50 clients using a factory
+** Create 50 clients using a factory:
 ➜  invoice2 git:(master) ✗ php artisan tinker
 >>> factory(App\Client::class,50)->create();
 
 ** Create route for client index (/clients), testing by going to that route before creating it, then incrementally building up to get to the view.
 
-** Copy bootstrap table structure into client index view
+**2019-11-07**
+
+** Copy bootstrap table structure into client index view; use striped, bordered, small, responsive table with textnowrap
+
+** Add pagination and sort by name, ascending
+
+** Globally set configuration keys for the @fortawesome scope, in order to use the Pro NPM registry:
+➜  invoice2 git:(feature-client) npm config set "@fortawesome:registry" https://npm.fontawesome.com/ && \
+  npm config set "//npm.fontawesome.com/:_authToken" 7467C7D5-1789-4549-9664-9E06FB278BED_
+
+** Install fontawesome 5 Pro in the project:
+➜  invoice2 git:(feature-client) ✗ npm install --save-dev @fortawesome/fontawesome-pro
++ @fortawesome/fontawesome-pro@5.11.2
+added 1 package from 6 contributors and audited 17161 packages in 17.152s
+found 0 vulnerabilities
+
+

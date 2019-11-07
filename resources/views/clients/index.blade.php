@@ -34,7 +34,7 @@
                     <tbody>
                         @foreach ($clients as $client)
                             <tr>
-                                <td>&nbsp;</td>
+                                <td><i class="fas fa-ellipsis-v fa-lg"></i></td>
                                 <td>{{ $client->name }}</td>
                                 <td>{{ $client->phone }}</td>
                                 <td>{{ $client->email }}</td>
