@@ -1,23 +1,18 @@
 # Development Notes - Invoice2
 
 ## Description
-
 A modernized version of my old Clipper "Invoice" accounting system. This version is built as a web app using Laravel 6, Bootstrap 4, and MySQL 8.
 
 ## Goal
-
 Start by creating a list of clients and associated jobs. Then decide whether to create invoices directly or to build an "inventory" and time-tracking system from which to generate invoices. Once invoices are being generated, create a way to record payments against invoices. That should provide a basic accounts receivable system. From there, I will create an accounts payable system, primarily to record expenses for tax purposes. I will work through all the functions that are in the old Invoice program and decide, one-by-one, which ones to implement.
 
 ## Project Statement / Manifesto (Overview)
-
 Start by handling clients, then jobs (i.e., cases or projects). All the client info - name, address, phone, email, and notes - will start in a single table. Once the CRUD for clients is complete, I'll create the jobs table (I plan to name it projects). A project will be associated with a single client.
 
 Later, for the clients table, I may extract address(es), phone number(s), and email address(es) into separate tables, so a client can have several of each. Countries and U.S. states can be changed to look-up tables. I will also add a boolean to identify the client as a person or a company. If it is a company, it will refer to a "people" table that has name (first, middle, last, etc.), title, etc. and point to the email and phone number tables. There will be a designtion as to which person(s) should receive invoices.
 
 ## What am I doing today? (small chunks)
-
 **2019-11-07**
-- Include fontawesome for access to view, edit, delete, and "more" icons
 - Make a create form; then store the data
 - Add validation
 - Display flash message for successful client creation
@@ -35,12 +30,28 @@ Later, for the clients table, I may extract address(es), phone number(s), and em
 ## Features and Functions
 
 #### High Priority (Must Have)
+- crud: add confirmation modal for deletions
+- crud: "Back to list" on show page can't use previous() *if* I am going to use that route after I edit a record.
+
 
 #### Medium Priority (Need to / Should Have)
+- crud: learn about $client->path() from Laracasts
+- crud: add column sorting
+- crud: add pevious and next buttons to Show page, allowing for sorted tables
+- forms: add autofocus using JavaScript, as FireFox doesn't support the html directive
+    document.getElementById('element').focus();
+- test routes with non-existent ids
+
 
 #### Low Priority (Nice-to-Have)
+- crud: after adding a client, return to the index, but on the page where the new record has been added, taking sorting into consideration.
+- pagination: make number of records per page a dropdown selection (e.g., 10, 25, 50)
+- forms: copy Bootstrap's "X" in right side of form fields with errors (is-invalid)
+- general: implement bumpver.sh to update version number of some file when release branches are created.
+
 
 ## User Stories
+
 
 ## Entities (tables, objects)
 1. Client
@@ -49,8 +60,8 @@ Later, for the clients table, I may extract address(es), phone number(s), and em
 A. A job belongs to a client.
 B. A client can have many jobs.
 
-## Bugs
 
+## Bugs
 * Source map error: Error: request failed with status 404; Resource URL: http://invoice2.test/js/app.js; Source Map URL: popper.js.map
     - fixed 2019-11-06 added ".sourceMaps()" to end of .js line in webpack.mix.js and ran "npm run dev"
 
@@ -135,4 +146,17 @@ B. A client can have many jobs.
 added 1 package from 6 contributors and audited 17161 packages in 17.152s
 found 0 vulnerabilities
 
+- Edit webpack.mix.js to be:
+mix.js('resources/js/app.js', 'public/js').sourceMaps()
+   .sass('resources/sass/app.scss', 'public/css')
+   .copy('node_modules/@fortawesome/fontawesome-pro/webfonts', 'public/fonts');;
 
+This resolved the browser error regarding missing popper.js.map, and it brings in the fontawesome pro icons
+
+- Add the following to app.scss:
+// Fontawesome 5 Pro - light and solid fonts only
+@import '~@fortawesome/fontawesome-pro/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-pro/scss/light.scss';
+@import '~@fortawesome/fontawesome-pro/scss/solid.scss';
+
+- included the fas (solid), fa-lg (large) version of fa-ellipsis-v in the actions cell of the client index table.

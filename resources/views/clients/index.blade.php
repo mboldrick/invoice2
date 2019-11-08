@@ -34,7 +34,25 @@
                     <tbody>
                         @foreach ($clients as $client)
                             <tr>
-                                <td><i class="fas fa-ellipsis-v fa-lg"></i></td>
+                                <td>
+                                    <div class="dropdown" style="text-align: center;">
+                                        <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-lg"></i>
+                                        </a>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="#"><i class="fal fa-eye fa-lg" style="color: dodgerblue;"></i>&nbsp;&nbsp;View</a>
+                                            <a class="dropdown-item" href="#"><i class="fal fa-edit fa-lg" style="color: green;"></i>&nbsp;&nbsp;Edit</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#"><i class="fal fa-trash-alt fa-lg" style="color: tomato;"></i>&nbsp;&nbsp;Delete</a>
+
+{{--                                             <a class="dropdown-item" href="{{ route('clients.show', $client) }}"><i class="fal fa-eye fa-lg" style="color: dodgerblue;"></i>&nbsp;View</a>
+                                            <a class="dropdown-item" href="{{ route('clients.edit', $client) }}"><i class="fal fa-edit fa-lg" style="color: green;"></i>&nbsp;Edit</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="{{ route('clients.destroy', $client) }}"><i class="fal fa-trash-alt fa-lg" style="color: tomato;"></i>&nbsp;Delete</a>
+ --}}                                        </div>
+                                    </div>
+                                </td>
                                 <td>{{ $client->name }}</td>
                                 <td>{{ $client->phone }}</td>
                                 <td>{{ $client->email }}</td>
