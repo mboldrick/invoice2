@@ -20048,3 +20048,40 @@ readers do not read off random characters that represent icons */
   font-weight: 900;
 }
 
+.card-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 0rem;
+}
+
+label span {
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.form-error {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #e3342f;
+  border-color: #e3342f;
+}
+
+i.fal {
+  margin-right: 0.5rem;
+}
+
+td a {
+  display: block;
+  width: 100%;
+}
+
+.pagination {
+  float: right;
+}
+

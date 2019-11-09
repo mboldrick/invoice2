@@ -12,4 +12,5 @@
 @import '~@fortawesome/fontawesome-pro/scss/light.scss';
 @import '~@fortawesome/fontawesome-pro/scss/solid.scss';
 
-// Custom CSS
+// Custom CSS / overrides of Bootstrap settings
+@import 'custom.scss';

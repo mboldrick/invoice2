@@ -27,7 +27,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create');
     }
 
     /**
@@ -38,7 +38,9 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Client::create($this->validateClient());
+
+        return redirect(route('clients.index'));
     }
 
     /**
@@ -84,5 +86,21 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         //
+    }
+
+    protected function validateClient()
+    {
+        return request()->validate([
+            'name' => ['required', 'max:255'],
+            'address1' => ['max:255'],
+            'address2' => ['max:255'],
+            'city' => ['max:255'],
+            'state' => ['max:255'],
+            'postalcode' => ['max:255'],
+            'country' => ['max:255'],
+            'email' => ['max:255'],
+            'phone' => ['max:255'],
+            'notes' => ['max:255']
+        ]);
     }
 }

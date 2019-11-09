@@ -12,9 +12,7 @@ Start by handling clients, then jobs (i.e., cases or projects). All the client i
 Later, for the clients table, I may extract address(es), phone number(s), and email address(es) into separate tables, so a client can have several of each. Countries and U.S. states can be changed to look-up tables. I will also add a boolean to identify the client as a person or a company. If it is a company, it will refer to a "people" table that has name (first, middle, last, etc.), title, etc. and point to the email and phone number tables. There will be a designtion as to which person(s) should receive invoices.
 
 ## What am I doing today? (small chunks)
-**2019-11-07**
-- Make a create form; then store the data
-- Add validation
+**2019-11-08**
 - Display flash message for successful client creation
 - Make an edit form; then store the data
 - Use validation on edit, too
@@ -160,3 +158,10 @@ This resolved the browser error regarding missing popper.js.map, and it brings i
 @import '~@fortawesome/fontawesome-pro/scss/solid.scss';
 
 - included the fas (solid), fa-lg (large) version of fa-ellipsis-v in the actions cell of the client index table.
+
+**2019-11-08**
+
+** Make a create form (copy from prior version of Invoice)
+- included creating the route, the create and store controller actions, and adding an "Add a Client" button on the index page. Also created a link to clients on the menu.
+
+

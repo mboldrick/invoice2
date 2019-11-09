@@ -12,6 +12,8 @@
                     </div>
                 @endif
 
+                <a href="{{ route('clients.create') }}" class="btn btn-primary mb-3 float-left">Add a Client</a>
+
                 {{ $clients->links() }}
 
                 <table class="table table-striped table-bordered table-sm table-responsive text-nowrap">
@@ -41,10 +43,10 @@
                                         </a>
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#"><i class="fal fa-eye fa-lg" style="color: dodgerblue;"></i>&nbsp;&nbsp;View</a>
-                                            <a class="dropdown-item" href="#"><i class="fal fa-edit fa-lg" style="color: green;"></i>&nbsp;&nbsp;Edit</a>
+                                            <a class="dropdown-item" href="#"><i class="fal fa-eye fa-lg" style="color: dodgerblue;"></i>View</a>
+                                            <a class="dropdown-item" href="#"><i class="fal fa-edit fa-lg" style="color: green;"></i>Edit</a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#"><i class="fal fa-trash-alt fa-lg" style="color: tomato;"></i>&nbsp;&nbsp;Delete</a>
+                                            <a class="dropdown-item" href="#"><i class="fal fa-trash-alt fa-lg" style="color: tomato;"></i>Delete</a>
 
 {{--                                             <a class="dropdown-item" href="{{ route('clients.show', $client) }}"><i class="fal fa-eye fa-lg" style="color: dodgerblue;"></i>&nbsp;View</a>
                                             <a class="dropdown-item" href="{{ route('clients.edit', $client) }}"><i class="fal fa-edit fa-lg" style="color: green;"></i>&nbsp;Edit</a>
@@ -67,6 +69,8 @@
                         @endforeach
                     </tbody>
                 </table>
+
+                <a href="{{ route('clients.create') }}" class="btn btn-primary mb-3 float-left">Add a Client</a>
 
                 {{ $clients->links() }}
 
